@@ -1,5 +1,5 @@
-#FROM debian:jessie-slim
-FROM debian:stretch-slim
+FROM debian:jessie-slim
+#FROM debian:stretch-slim
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN groupadd -r redis && useradd -r -g redis redis
@@ -331,8 +331,8 @@ RUN set -eux; \
 	apt-get purge -y --auto-remove ca-certificates wget; \
 	\
 	export GNUPGHOME="$(mktemp -d)"; \
-	gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$RABBITMQ_GPG_KEY"; \
-	gpg --batch --verify rabbitmq-server.deb.asc rabbitmq-server.deb; \
+	#gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$RABBITMQ_GPG_KEY"; \
+	#gpg --batch --verify rabbitmq-server.deb.asc rabbitmq-server.deb; \
 	rm -rf "$GNUPGHOME"; \
 	\
 	apt install -y --no-install-recommends ./rabbitmq-server.deb; \
