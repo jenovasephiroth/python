@@ -85,7 +85,7 @@ RUN set -x \
 	&& gosu nobody true \
 	&& apt-get purge -y --auto-remove ca-certificates wget
 
-RUN mkdir /docker-entrypoint-initdb.d
+#RUN mkdir /docker-entrypoint-initdb.d
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
 # for MYSQL_RANDOM_ROOT_PASSWORD
@@ -174,7 +174,7 @@ RUN set -ex; \
 	\
 	apt-get purge -y --auto-remove wget
 
-RUN mkdir /docker-entrypoint-initdb.d
+#RUN mkdir /docker-entrypoint-initdb.d
 
 ENV GPG_KEYS \
 # pub   4096R/91FA4AD5 2016-12-14 [expires: 2018-12-14]
